@@ -51,22 +51,26 @@ Abaixo seguem capturas de tela que demonstram como o Claude Code foi utilizado d
 
 ### Tela 1 - Especificacao inicial dos jogos
 
-<!-- INSIRA O PRINT AQUI: documento PDF ou mensagem inicial com as regras --><img width="872" height="389" alt="image" src="https://github.com/user-attachments/assets/e64699d5-ca42-4dd7-8146-cc5a5b4e928a" />
+<!-- INSIRA O PRINT AQUI: documento PDF ou mensagem inicial com as regras --><img width="1090" height="632" alt="image" src="https://github.com/user-attachments/assets/d6a9be8c-2900-4c03-bc15-53027e6974db" />
+
 
 
 ### Tela 2 - Geracao da primeira versao do codigo
 
-<!-- INSIRA O PRINT AQUI: Claude gerando o codigo C --><img width="1320" height="475" alt="image" src="https://github.com/user-attachments/assets/0b9bc432-9b6f-4260-9abe-7018fc45696b" />
+<!-- INSIRA O PRINT AQUI: Claude gerando o codigo C --><img width="872" height="389" alt="image" src="https://github.com/user-attachments/assets/1d10530e-014c-44f2-8458-4f84a305795e" />
+
 
 
 ### Tela 3 - Solicitacao de ajustes (nomes pre-definidos)
 
-<!-- INSIRA O PRINT AQUI: aluno pedindo alteracao e Claude ajustando --><img width="1113" height="338" alt="image" src="https://github.com/user-attachments/assets/232337bd-696f-423a-93cb-da3dfc03f3fd" />
+<!-- INSIRA O PRINT AQUI: aluno pedindo alteracao e Claude ajustando --><img width="1113" height="338" alt="image" src="https://github.com/user-attachments/assets/6997a393-1d31-4fa4-af43-6eb3d785ad27" />
+
 
 
 ### Tela 4 - Compilacao e codigo final
 
-<!-- INSIRA O PRINT AQUI: resultado final ou terminal compilando --><img width="680" height="537" alt="image" src="https://github.com/user-attachments/assets/6924d3c9-8940-4031-ad0a-d7bb6fa6fab1" />
+<!-- INSIRA O PRINT AQUI: resultado final ou terminal compilando --><img width="680" height="537" alt="image" src="https://github.com/user-attachments/assets/b6591126-3572-4301-ac77-ffbc6a42c613" />
+
 
 
 ---
