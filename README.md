@@ -51,19 +51,23 @@ Abaixo seguem capturas de tela que demonstram como o Claude Code foi utilizado d
 
 ### Tela 1 - Especificacao inicial dos jogos
 
-<!-- INSIRA O PRINT AQUI: documento PDF ou mensagem inicial com as regras -->
+<!-- INSIRA O PRINT AQUI: documento PDF ou mensagem inicial com as regras --><img width="872" height="389" alt="image" src="https://github.com/user-attachments/assets/e64699d5-ca42-4dd7-8146-cc5a5b4e928a" />
+
 
 ### Tela 2 - Geracao da primeira versao do codigo
 
-<!-- INSIRA O PRINT AQUI: Claude gerando o codigo C -->
+<!-- INSIRA O PRINT AQUI: Claude gerando o codigo C --><img width="1320" height="475" alt="image" src="https://github.com/user-attachments/assets/0b9bc432-9b6f-4260-9abe-7018fc45696b" />
+
 
 ### Tela 3 - Solicitacao de ajustes (nomes pre-definidos)
 
-<!-- INSIRA O PRINT AQUI: aluno pedindo alteracao e Claude ajustando -->
+<!-- INSIRA O PRINT AQUI: aluno pedindo alteracao e Claude ajustando --><img width="1113" height="338" alt="image" src="https://github.com/user-attachments/assets/232337bd-696f-423a-93cb-da3dfc03f3fd" />
+
 
 ### Tela 4 - Compilacao e codigo final
 
-<!-- INSIRA O PRINT AQUI: resultado final ou terminal compilando -->
+<!-- INSIRA O PRINT AQUI: resultado final ou terminal compilando --><img width="680" height="537" alt="image" src="https://github.com/user-attachments/assets/6924d3c9-8940-4031-ad0a-d7bb6fa6fab1" />
+
 
 ---
 
