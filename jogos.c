@@ -249,63 +249,6 @@ void jogo_cobra_caixa(void) {
 /*                     JOGO 3: GOUSMAS WAR                        */
 /* ============================================================ */
 
-#define MAX_GOUSMAS 2
-#define FURIA_MORTAL 5
-
-typedef struct {
-    char nome[3]; /* "G1", "G2" */
-    int furia;
-    int ativa;
-} Gousma;
-
-typedef struct {
-    char nome[50];
-    Gousma gousmas[MAX_GOUSMAS];
-    int furia_global; /* furiabase que gera novas gousmas */
-} JogadorG;
-
-void iniciar_jogador(JogadorG *j, const char *nome) {
-    int k;
-    strncpy(j->nome, nome, sizeof(j->nome) - 1);
-    j->nome[sizeof(j->nome) - 1] = 0;
-    j->furia_global = 1;
-    for (k = 0; k < MAX_GOUSMAS; k++) {
-        j->gousmas[k].nome[0] = 'G';
-        j->gousmas[k].nome[1] = (char)('1' + k);
-        j->gousmas[k].nome[2] = 0;
-        j->gousmas[k].furia = 1;
-        j->gousmas[k].ativa = 1;
-    }
-}
-
-int contar_ativas(JogadorG *j) {
-    int c = 0, k;
-    for (k = 0; k < MAX_GOUSMAS; k++) {
-        if (j->gousmas[k].ativa) c++;
-    }
-    return c;
-}
-
-void imprimir_status(JogadorG *p1, JogadorG *p2, int turno) {
-    int k;
-    printf("\n========== GOUSMAS WAR ==========\n");
-    printf("--- %s %s ---\n", p1->nome, turno == 0 ? "(SUA VEZ)" : "");
-    for (k = 0; k < MAX_GOUSMAS; k++) {
-        if (p1->gousmas[k].ativa)
-            printf("  %s: Furia = %d\n", p1->gousmas[k].nome, p1->gousmas[k].furia);
-        else
-            printf("  %s: DESTROIDA\n", p1->gousmas[k].nome);
-    }
-    printf("--- %s %s ---\n", p2->nome, turno == 1 ? "(SUA VEZ)" : "");
-    for (k = 0; k < MAX_GOUSMAS; k++) {
-        if (p2->gousmas[k].ativa)
-            printf("  %s: Furia = %d\n", p2->gousmas[k].nome, p2->gousmas[k].furia);
-        else
-            printf("  %s: DESTROIDA\n", p2->gousmas[k].nome);
-    }
-    printf("=================================\n");
-}
-
 void jogo_gousmas_war(void) {
     char nome1[50], nome2[50];
     JogadorG jog[2];
@@ -317,9 +260,9 @@ void jogo_gousmas_war(void) {
     printf("Cada jogador possui 2 Gousmas com furia inicial 1.\n");
     printf("ACOES:\n");
     printf("  [1] ATACAR - Soma furia da sua Gousma ativa ao alvo inimigo.\n");
-    printf("             Se furia do alvo > %d, ele e destruido.\n", FURIA_MORTAL);
+    printf("               Se furia do alvo > %d, ele e destruido.\n", FURIA_MORTAL);
     printf("  [2] DIVIDIR - Transfere furia entre suas Gousmas.\n");
-    printf("             Se uma Gousma foi destruida, pode revive-la.\n");
+    printf("               Se uma Gousma foi destruida, pode revive-la.\n");
     printf("PERDE quem ficar sem Gousmas ativas!\n\n");
 
     printf("Nome do Jogador 1: ");
@@ -446,6 +389,21 @@ void jogo_gousmas_war(void) {
                        jog[ativo].gousmas[destino].nome, furia_transferida);
             } else {
                 /* Ambas ativas: transferir furia */
+                
+                /* VERIFICAÇÃO ADICIONADA AQUI */
+                int pode_transferir = 0;
+                for (k = 0; k < MAX_GOUSMAS; k++) {
+                    if (jog[ativo].gousmas[k].ativa && jog[ativo].gousmas[k].furia > 1) {
+                        pode_transferir = 1;
+                        break;
+                    }
+                }
+
+                if (!pode_transferir) {
+                    printf("\n>> AVISO: Nenhuma das suas Gousmas tem furia suficiente (>1) para dividir!\n");
+                    continue; /* Volta o loop sem passar a vez */
+                }
+
                 printf("Escolha a Gousma fonte:\n");
                 for (k = 0; k < MAX_GOUSMAS; k++) {
                     if (jog[ativo].gousmas[k].ativa)
@@ -454,8 +412,14 @@ void jogo_gousmas_war(void) {
                 }
                 printf("Fonte: ");
                 origem = ler_inteiro(1, MAX_GOUSMAS) - 1;
-                while (!jog[ativo].gousmas[origem].ativa) {
-                    printf("Gousma destroida! Escolha outra: ");
+                
+                /* VERIFICAÇÃO ADICIONADA AQUI */
+                while (!jog[ativo].gousmas[origem].ativa || jog[ativo].gousmas[origem].furia <= 1) {
+                    if (!jog[ativo].gousmas[origem].ativa) {
+                        printf("Gousma destroida! Escolha outra: ");
+                    } else {
+                        printf("Furia insuficiente! Escolha uma Gousma com furia > 1: ");
+                    }
                     origem = ler_inteiro(1, MAX_GOUSMAS) - 1;
                 }
 
